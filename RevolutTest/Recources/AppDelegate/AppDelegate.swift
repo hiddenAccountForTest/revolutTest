@@ -15,7 +15,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let downloadService = DownloadCurrenciesImplementation(networkClient: NetworkClientImplementation.shared)
+        let requestConstructor = RequestConstructorImplementation()
+        
+        let viewModel = CurrenciesViewModel(downloadService: downloadService, requestConstructor: requestConstructor)
+        let currenciesViewController = CurrenciesViewController(viewModel: viewModel)
+        
+        let navigationController = UINavigationController(rootViewController: currenciesViewController)
+        
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        
         return true
     }
 

@@ -7,12 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9592064486DCB44C35B1795F /* Pods_RevolutTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 739B16396E0995F794DCBFF5 /* Pods_RevolutTestTests.framework */; };
+		9C36A9E277760DE026E047C3 /* Pods_RevolutTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A431B942132516E2B907C0FF /* Pods_RevolutTest.framework */; };
 		BB365A2421E0FDDD00152F04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB365A2321E0FDDD00152F04 /* AppDelegate.swift */; };
-		BB365A2621E0FDDD00152F04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB365A2521E0FDDD00152F04 /* ViewController.swift */; };
-		BB365A2921E0FDDD00152F04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB365A2721E0FDDD00152F04 /* Main.storyboard */; };
+		BB365A2621E0FDDD00152F04 /* CurrenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB365A2521E0FDDD00152F04 /* CurrenciesViewController.swift */; };
 		BB365A2B21E0FDE000152F04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB365A2A21E0FDE000152F04 /* Assets.xcassets */; };
 		BB365A2E21E0FDE000152F04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB365A2C21E0FDE000152F04 /* LaunchScreen.storyboard */; };
 		BB365A3921E0FDE000152F04 /* RevolutTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB365A3821E0FDE000152F04 /* RevolutTestTests.swift */; };
+		BB365A5021E1365B00152F04 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB365A4F21E1365B00152F04 /* NetworkClient.swift */; };
+		BB365A5221E1385D00152F04 /* NetworkClientImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB365A5121E1385D00152F04 /* NetworkClientImplementation.swift */; };
+		BB365A5421E1537200152F04 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB365A5321E1537200152F04 /* Result.swift */; };
+		BB71CF2921E22D2800188EF6 /* DownloadCurrencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB71CF2821E22D2800188EF6 /* DownloadCurrencies.swift */; };
+		BB71CF2B21E22D5A00188EF6 /* DownloadCurrenciesImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB71CF2A21E22D5A00188EF6 /* DownloadCurrenciesImplementation.swift */; };
+		BB71CF2D21E2316F00188EF6 /* CurrenciesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB71CF2C21E2316F00188EF6 /* CurrenciesModel.swift */; };
+		BB71CF3021E2340B00188EF6 /* RequestConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB71CF2F21E2340B00188EF6 /* RequestConstructor.swift */; };
+		BB71CF3221E2381200188EF6 /* RequestConstructorImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB71CF3121E2381200188EF6 /* RequestConstructorImplementation.swift */; };
+		BB71CF3421E255FF00188EF6 /* CurrenciesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB71CF3321E255FF00188EF6 /* CurrenciesViewModel.swift */; };
+		BB71CF3621E269D100188EF6 /* CurrenciesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB71CF3521E269D100188EF6 /* CurrenciesCellViewModel.swift */; };
+		BB71CF3A21E26BC300188EF6 /* CurrenciesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB71CF3921E26BC300188EF6 /* CurrenciesTableViewCell.swift */; };
+		BB71CF3E21E2834200188EF6 /* Setupable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB71CF3D21E2834200188EF6 /* Setupable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +39,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		06249B37E4E119E6324ED3B1 /* Pods-RevolutTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutTest/Pods-RevolutTest.release.xcconfig"; sourceTree = "<group>"; };
+		45B8CBDB6372D340C99044F4 /* Pods-RevolutTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutTest/Pods-RevolutTest.debug.xcconfig"; sourceTree = "<group>"; };
+		703E3C7858DFEFDECC4DA144 /* Pods-RevolutTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutTestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutTestTests/Pods-RevolutTestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		739B16396E0995F794DCBFF5 /* Pods_RevolutTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DCAD3D79C0E59A033443488 /* Pods-RevolutTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RevolutTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RevolutTestTests/Pods-RevolutTestTests.release.xcconfig"; sourceTree = "<group>"; };
+		A431B942132516E2B907C0FF /* Pods_RevolutTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RevolutTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB365A2021E0FDDD00152F04 /* RevolutTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RevolutTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB365A2321E0FDDD00152F04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BB365A2521E0FDDD00152F04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BB365A2821E0FDDD00152F04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BB365A2521E0FDDD00152F04 /* CurrenciesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesViewController.swift; sourceTree = "<group>"; };
 		BB365A2A21E0FDE000152F04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB365A2D21E0FDE000152F04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB365A2F21E0FDE000152F04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB365A3421E0FDE000152F04 /* RevolutTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RevolutTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB365A3821E0FDE000152F04 /* RevolutTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevolutTestTests.swift; sourceTree = "<group>"; };
 		BB365A3A21E0FDE000152F04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB365A4F21E1365B00152F04 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		BB365A5121E1385D00152F04 /* NetworkClientImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientImplementation.swift; sourceTree = "<group>"; };
+		BB365A5321E1537200152F04 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		BB71CF2821E22D2800188EF6 /* DownloadCurrencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadCurrencies.swift; sourceTree = "<group>"; };
+		BB71CF2A21E22D5A00188EF6 /* DownloadCurrenciesImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadCurrenciesImplementation.swift; sourceTree = "<group>"; };
+		BB71CF2C21E2316F00188EF6 /* CurrenciesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesModel.swift; sourceTree = "<group>"; };
+		BB71CF2F21E2340B00188EF6 /* RequestConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConstructor.swift; sourceTree = "<group>"; };
+		BB71CF3121E2381200188EF6 /* RequestConstructorImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConstructorImplementation.swift; sourceTree = "<group>"; };
+		BB71CF3321E255FF00188EF6 /* CurrenciesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesViewModel.swift; sourceTree = "<group>"; };
+		BB71CF3521E269D100188EF6 /* CurrenciesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesCellViewModel.swift; sourceTree = "<group>"; };
+		BB71CF3921E26BC300188EF6 /* CurrenciesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesTableViewCell.swift; sourceTree = "<group>"; };
+		BB71CF3D21E2834200188EF6 /* Setupable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setupable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C36A9E277760DE026E047C3 /* Pods_RevolutTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +81,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9592064486DCB44C35B1795F /* Pods_RevolutTestTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03A289CAFD77468AEB9A1175 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A431B942132516E2B907C0FF /* Pods_RevolutTest.framework */,
+				739B16396E0995F794DCBFF5 /* Pods_RevolutTestTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9DEAD9985E6A7D38856ABBA6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				45B8CBDB6372D340C99044F4 /* Pods-RevolutTest.debug.xcconfig */,
+				06249B37E4E119E6324ED3B1 /* Pods-RevolutTest.release.xcconfig */,
+				703E3C7858DFEFDECC4DA144 /* Pods-RevolutTestTests.debug.xcconfig */,
+				8DCAD3D79C0E59A033443488 /* Pods-RevolutTestTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BB365A1721E0FDDD00152F04 = {
 			isa = PBXGroup;
 			children = (
 				BB365A2221E0FDDD00152F04 /* RevolutTest */,
 				BB365A3721E0FDE000152F04 /* RevolutTestTests */,
 				BB365A2121E0FDDD00152F04 /* Products */,
+				9DEAD9985E6A7D38856ABBA6 /* Pods */,
+				03A289CAFD77468AEB9A1175 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +131,8 @@
 		BB365A2221E0FDDD00152F04 /* RevolutTest */ = {
 			isa = PBXGroup;
 			children = (
-				BB365A2321E0FDDD00152F04 /* AppDelegate.swift */,
-				BB365A2521E0FDDD00152F04 /* ViewController.swift */,
-				BB365A2721E0FDDD00152F04 /* Main.storyboard */,
-				BB365A2A21E0FDE000152F04 /* Assets.xcassets */,
-				BB365A2C21E0FDE000152F04 /* LaunchScreen.storyboard */,
-				BB365A2F21E0FDE000152F04 /* Info.plist */,
+				BB365A4421E11E8E00152F04 /* Recources */,
+				BB365A4321E11E7C00152F04 /* Sources */,
 			);
 			path = RevolutTest;
 			sourceTree = "<group>";
@@ -96,6 +146,141 @@
 			path = RevolutTestTests;
 			sourceTree = "<group>";
 		};
+		BB365A4321E11E7C00152F04 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				BB71CF3B21E2826E00188EF6 /* Common */,
+				BB365A4A21E133FB00152F04 /* Core */,
+				BB365A4921E133E500152F04 /* Services */,
+				BB365A4721E1334600152F04 /* Modules */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		BB365A4421E11E8E00152F04 /* Recources */ = {
+			isa = PBXGroup;
+			children = (
+				BB365A4521E11EB800152F04 /* AppDelegate */,
+				BB365A2F21E0FDE000152F04 /* Info.plist */,
+				BB365A2A21E0FDE000152F04 /* Assets.xcassets */,
+				BB365A2C21E0FDE000152F04 /* LaunchScreen.storyboard */,
+			);
+			path = Recources;
+			sourceTree = "<group>";
+		};
+		BB365A4521E11EB800152F04 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				BB365A2321E0FDDD00152F04 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		BB365A4721E1334600152F04 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				BB365A4821E1334D00152F04 /* Currencies */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		BB365A4821E1334D00152F04 /* Currencies */ = {
+			isa = PBXGroup;
+			children = (
+				BB365A4D21E1343200152F04 /* Model */,
+				BB365A4C21E1342400152F04 /* ViewModel */,
+				BB365A4B21E1341D00152F04 /* View */,
+			);
+			path = Currencies;
+			sourceTree = "<group>";
+		};
+		BB365A4921E133E500152F04 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BB71CF2E21E233CB00188EF6 /* RequestConstructor */,
+				BB71CF2721E22CFD00188EF6 /* DownloadCurrencies */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BB365A4A21E133FB00152F04 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BB365A4E21E1362600152F04 /* NetworkClient */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		BB365A4B21E1341D00152F04 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB365A2521E0FDDD00152F04 /* CurrenciesViewController.swift */,
+				BB71CF3921E26BC300188EF6 /* CurrenciesTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB365A4C21E1342400152F04 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BB71CF3321E255FF00188EF6 /* CurrenciesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BB365A4D21E1343200152F04 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BB71CF2C21E2316F00188EF6 /* CurrenciesModel.swift */,
+				BB71CF3521E269D100188EF6 /* CurrenciesCellViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BB365A4E21E1362600152F04 /* NetworkClient */ = {
+			isa = PBXGroup;
+			children = (
+				BB365A4F21E1365B00152F04 /* NetworkClient.swift */,
+				BB365A5121E1385D00152F04 /* NetworkClientImplementation.swift */,
+				BB365A5321E1537200152F04 /* Result.swift */,
+			);
+			path = NetworkClient;
+			sourceTree = "<group>";
+		};
+		BB71CF2721E22CFD00188EF6 /* DownloadCurrencies */ = {
+			isa = PBXGroup;
+			children = (
+				BB71CF2821E22D2800188EF6 /* DownloadCurrencies.swift */,
+				BB71CF2A21E22D5A00188EF6 /* DownloadCurrenciesImplementation.swift */,
+			);
+			path = DownloadCurrencies;
+			sourceTree = "<group>";
+		};
+		BB71CF2E21E233CB00188EF6 /* RequestConstructor */ = {
+			isa = PBXGroup;
+			children = (
+				BB71CF2F21E2340B00188EF6 /* RequestConstructor.swift */,
+				BB71CF3121E2381200188EF6 /* RequestConstructorImplementation.swift */,
+			);
+			path = RequestConstructor;
+			sourceTree = "<group>";
+		};
+		BB71CF3B21E2826E00188EF6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BB71CF3C21E2828300188EF6 /* Protocols */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BB71CF3C21E2828300188EF6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BB71CF3D21E2834200188EF6 /* Setupable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,6 +288,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB365A3D21E0FDE000152F04 /* Build configuration list for PBXNativeTarget "RevolutTest" */;
 			buildPhases = (
+				BDD22B472CFB18A2AA2802CF /* [CP] Check Pods Manifest.lock */,
 				BB365A1C21E0FDDD00152F04 /* Sources */,
 				BB365A1D21E0FDDD00152F04 /* Frameworks */,
 				BB365A1E21E0FDDD00152F04 /* Resources */,
@@ -120,6 +306,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB365A4021E0FDE000152F04 /* Build configuration list for PBXNativeTarget "RevolutTestTests" */;
 			buildPhases = (
+				954E891CC736A772F59723C2 /* [CP] Check Pods Manifest.lock */,
 				BB365A3021E0FDE000152F04 /* Sources */,
 				BB365A3121E0FDE000152F04 /* Frameworks */,
 				BB365A3221E0FDE000152F04 /* Resources */,
@@ -179,7 +366,6 @@
 			files = (
 				BB365A2E21E0FDE000152F04 /* LaunchScreen.storyboard in Resources */,
 				BB365A2B21E0FDE000152F04 /* Assets.xcassets in Resources */,
-				BB365A2921E0FDDD00152F04 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,13 +378,72 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		954E891CC736A772F59723C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RevolutTestTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDD22B472CFB18A2AA2802CF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RevolutTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BB365A1C21E0FDDD00152F04 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB365A2621E0FDDD00152F04 /* ViewController.swift in Sources */,
+				BB71CF3021E2340B00188EF6 /* RequestConstructor.swift in Sources */,
+				BB365A2621E0FDDD00152F04 /* CurrenciesViewController.swift in Sources */,
+				BB365A5421E1537200152F04 /* Result.swift in Sources */,
+				BB71CF3621E269D100188EF6 /* CurrenciesCellViewModel.swift in Sources */,
+				BB365A5221E1385D00152F04 /* NetworkClientImplementation.swift in Sources */,
+				BB71CF3A21E26BC300188EF6 /* CurrenciesTableViewCell.swift in Sources */,
+				BB71CF3421E255FF00188EF6 /* CurrenciesViewModel.swift in Sources */,
 				BB365A2421E0FDDD00152F04 /* AppDelegate.swift in Sources */,
+				BB71CF2D21E2316F00188EF6 /* CurrenciesModel.swift in Sources */,
+				BB71CF3E21E2834200188EF6 /* Setupable.swift in Sources */,
+				BB71CF3221E2381200188EF6 /* RequestConstructorImplementation.swift in Sources */,
+				BB71CF2921E22D2800188EF6 /* DownloadCurrencies.swift in Sources */,
+				BB71CF2B21E22D5A00188EF6 /* DownloadCurrenciesImplementation.swift in Sources */,
+				BB365A5021E1365B00152F04 /* NetworkClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,14 +466,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BB365A2721E0FDDD00152F04 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BB365A2821E0FDDD00152F04 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BB365A2C21E0FDE000152F04 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -358,11 +595,12 @@
 		};
 		BB365A3E21E0FDE000152F04 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45B8CBDB6372D340C99044F4 /* Pods-RevolutTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KJ28DR5WWZ;
-				INFOPLIST_FILE = RevolutTest/Info.plist;
+				INFOPLIST_FILE = RevolutTest/Recources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -376,11 +614,12 @@
 		};
 		BB365A3F21E0FDE000152F04 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06249B37E4E119E6324ED3B1 /* Pods-RevolutTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KJ28DR5WWZ;
-				INFOPLIST_FILE = RevolutTest/Info.plist;
+				INFOPLIST_FILE = RevolutTest/Recources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -394,6 +633,7 @@
 		};
 		BB365A4121E0FDE000152F04 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 703E3C7858DFEFDECC4DA144 /* Pods-RevolutTestTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -415,6 +655,7 @@
 		};
 		BB365A4221E0FDE000152F04 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DCAD3D79C0E59A033443488 /* Pods-RevolutTestTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
