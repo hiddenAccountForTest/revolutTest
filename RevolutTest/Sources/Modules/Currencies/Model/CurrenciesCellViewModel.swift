@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-struct CurrenicesCellViewModel {
+struct CurrenciesCellViewModel {
     
     let image: UIImage
     let abbreviation: String
     let currencyName: String
-    let numberOfCurrency: String
+    var numberOfCurrency: Double
     
 }

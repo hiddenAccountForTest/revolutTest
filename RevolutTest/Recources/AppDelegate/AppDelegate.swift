@@ -20,8 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let downloadService = DownloadCurrenciesImplementation(networkClient: NetworkClientImplementation.shared)
         let requestConstructor = RequestConstructorImplementation()
+        let countriesDataSource = CountriesDataSource()
         
-        let viewModel = CurrenciesViewModel(downloadService: downloadService, requestConstructor: requestConstructor)
+        let viewModel = CurrenciesViewModel(downloadService: downloadService, requestConstructor: requestConstructor, countriesDataSource: countriesDataSource)
         let currenciesViewController = CurrenciesViewController(viewModel: viewModel)
         
         let navigationController = UINavigationController(rootViewController: currenciesViewController)

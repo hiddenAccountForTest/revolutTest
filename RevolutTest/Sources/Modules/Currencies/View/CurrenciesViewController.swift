@@ -16,7 +16,7 @@ final class CurrenciesViewController: UIViewController {
     
     // MARK: - Properties
     
-    private let tableView = UITableView()
+    let tableView = UITableView()
     private let viewModel: CurrenciesViewModel
     
     // MARK: - Life cycle
@@ -34,7 +34,7 @@ final class CurrenciesViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         viewModel.delegate = self
-        viewModel.downloadCurrencies()
+        viewModel.startDownloadCurrenciesWithEuro()
     }
 
     // MARK: - Private methods
@@ -45,6 +45,7 @@ final class CurrenciesViewController: UIViewController {
         tableView.register(CurrenciesTableViewCell.self, forCellReuseIdentifier: "Cell")
         title = .currencies
         
+        tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
@@ -66,6 +67,7 @@ extension CurrenciesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         (cell as? CurrenciesTableViewCell)?.setup(viewModel.cellViewModels[indexPath.row])
+        (cell as? CurrenciesTableViewCell)?.delegate = viewModel
         return cell
     }
     
@@ -76,11 +78,11 @@ extension CurrenciesViewController: UITableViewDataSource {
 extension CurrenciesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 80
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 80
     }
     
 }
@@ -91,6 +93,16 @@ extension CurrenciesViewController: CurrenciesViewModelDelegate {
     
     func updateTableView() {
         tableView.reloadData()
+        
+        for index in 0...tableView.numberOfRows(inSection: 0) {
+            let cell = tableView.cellForRow(at: IndexPath(item: index, section: 0))
+            guard let observer = cell as? CurrenciesTableViewCell else {
+                return
+            }
+            
+            viewModel.observerArray.append(observer)
+        }
+        
     }
     
 }

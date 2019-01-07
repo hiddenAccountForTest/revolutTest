@@ -26,6 +26,11 @@
 		BB71CF3621E269D100188EF6 /* CurrenciesCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB71CF3521E269D100188EF6 /* CurrenciesCellViewModel.swift */; };
 		BB71CF3A21E26BC300188EF6 /* CurrenciesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB71CF3921E26BC300188EF6 /* CurrenciesTableViewCell.swift */; };
 		BB71CF3E21E2834200188EF6 /* Setupable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB71CF3D21E2834200188EF6 /* Setupable.swift */; };
+		BBC2D55621E37204001ECBDE /* CountryCurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D55521E37204001ECBDE /* CountryCurrencyModel.swift */; };
+		BBC2D55921E376BC001ECBDE /* CountriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D55821E376BC001ECBDE /* CountriesDataSource.swift */; };
+		BBC2D55C21E3B027001ECBDE /* UnderscoreTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D55B21E3B027001ECBDE /* UnderscoreTextField.swift */; };
+		BBC2D55E21E3F24F001ECBDE /* CurrenciesStateChangeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D55D21E3F24E001ECBDE /* CurrenciesStateChangeDelegate.swift */; };
+		BBC2D56021E4017A001ECBDE /* CurrencyCellObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D55F21E4017A001ECBDE /* CurrencyCellObserver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +71,11 @@
 		BB71CF3521E269D100188EF6 /* CurrenciesCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesCellViewModel.swift; sourceTree = "<group>"; };
 		BB71CF3921E26BC300188EF6 /* CurrenciesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesTableViewCell.swift; sourceTree = "<group>"; };
 		BB71CF3D21E2834200188EF6 /* Setupable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setupable.swift; sourceTree = "<group>"; };
+		BBC2D55521E37204001ECBDE /* CountryCurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCurrencyModel.swift; sourceTree = "<group>"; };
+		BBC2D55821E376BC001ECBDE /* CountriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesDataSource.swift; sourceTree = "<group>"; };
+		BBC2D55B21E3B027001ECBDE /* UnderscoreTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderscoreTextField.swift; sourceTree = "<group>"; };
+		BBC2D55D21E3F24E001ECBDE /* CurrenciesStateChangeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesStateChangeDelegate.swift; sourceTree = "<group>"; };
+		BBC2D55F21E4017A001ECBDE /* CurrencyCellObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCellObserver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +197,7 @@
 		BB365A4821E1334D00152F04 /* Currencies */ = {
 			isa = PBXGroup;
 			children = (
+				BBC2D55721E37677001ECBDE /* Composition */,
 				BB365A4D21E1343200152F04 /* Model */,
 				BB365A4C21E1342400152F04 /* ViewModel */,
 				BB365A4B21E1341D00152F04 /* View */,
@@ -224,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				BB71CF3321E255FF00188EF6 /* CurrenciesViewModel.swift */,
+				BBC2D55D21E3F24E001ECBDE /* CurrenciesStateChangeDelegate.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -233,6 +245,7 @@
 			children = (
 				BB71CF2C21E2316F00188EF6 /* CurrenciesModel.swift */,
 				BB71CF3521E269D100188EF6 /* CurrenciesCellViewModel.swift */,
+				BBC2D55521E37204001ECBDE /* CountryCurrencyModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,6 +281,7 @@
 		BB71CF3B21E2826E00188EF6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BBC2D55A21E3AFF4001ECBDE /* View */,
 				BB71CF3C21E2828300188EF6 /* Protocols */,
 			);
 			path = Common;
@@ -277,8 +291,25 @@
 			isa = PBXGroup;
 			children = (
 				BB71CF3D21E2834200188EF6 /* Setupable.swift */,
+				BBC2D55F21E4017A001ECBDE /* CurrencyCellObserver.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		BBC2D55721E37677001ECBDE /* Composition */ = {
+			isa = PBXGroup;
+			children = (
+				BBC2D55821E376BC001ECBDE /* CountriesDataSource.swift */,
+			);
+			path = Composition;
+			sourceTree = "<group>";
+		};
+		BBC2D55A21E3AFF4001ECBDE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BBC2D55B21E3B027001ECBDE /* UnderscoreTextField.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,13 +464,18 @@
 				BB71CF3021E2340B00188EF6 /* RequestConstructor.swift in Sources */,
 				BB365A2621E0FDDD00152F04 /* CurrenciesViewController.swift in Sources */,
 				BB365A5421E1537200152F04 /* Result.swift in Sources */,
+				BBC2D55C21E3B027001ECBDE /* UnderscoreTextField.swift in Sources */,
 				BB71CF3621E269D100188EF6 /* CurrenciesCellViewModel.swift in Sources */,
 				BB365A5221E1385D00152F04 /* NetworkClientImplementation.swift in Sources */,
 				BB71CF3A21E26BC300188EF6 /* CurrenciesTableViewCell.swift in Sources */,
 				BB71CF3421E255FF00188EF6 /* CurrenciesViewModel.swift in Sources */,
 				BB365A2421E0FDDD00152F04 /* AppDelegate.swift in Sources */,
+				BBC2D56021E4017A001ECBDE /* CurrencyCellObserver.swift in Sources */,
 				BB71CF2D21E2316F00188EF6 /* CurrenciesModel.swift in Sources */,
+				BBC2D55621E37204001ECBDE /* CountryCurrencyModel.swift in Sources */,
+				BBC2D55E21E3F24F001ECBDE /* CurrenciesStateChangeDelegate.swift in Sources */,
 				BB71CF3E21E2834200188EF6 /* Setupable.swift in Sources */,
+				BBC2D55921E376BC001ECBDE /* CountriesDataSource.swift in Sources */,
 				BB71CF3221E2381200188EF6 /* RequestConstructorImplementation.swift in Sources */,
 				BB71CF2921E22D2800188EF6 /* DownloadCurrencies.swift in Sources */,
 				BB71CF2B21E22D5A00188EF6 /* DownloadCurrenciesImplementation.swift in Sources */,

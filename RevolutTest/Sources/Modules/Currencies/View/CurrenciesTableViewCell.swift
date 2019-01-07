@@ -9,13 +9,17 @@
 import UIKit
 
 final class CurrenciesTableViewCell: UITableViewCell {
+    
+    // MARK: - Delegate
+    
+    weak var delegate: CurrenciesStateChangeDelegate?
 
     // MARK: - Private properties
     
-    private let abbreviationLabel = UILabel()
+    let abbreviationLabel = UILabel()
     private let currencyNameLabel = UILabel()
     private let currencyImage = UIImageView()
-    private let currencyTextField = UITextField()
+    private let currencyTextField = UnderscoreTextField()
     
     // MARK: - Life cycle
     
@@ -32,33 +36,60 @@ final class CurrenciesTableViewCell: UITableViewCell {
     
     private func setupView() {
         
+        selectionStyle = .none
+        
         currencyImage.translatesAutoresizingMaskIntoConstraints = false
         currencyImage.contentMode = .scaleAspectFit
         contentView.addSubview(currencyImage)
-        currencyImage.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        currencyImage.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        currencyImage.heightAnchor.constraint(equalToConstant: 65).isActive = true
+        currencyImage.widthAnchor.constraint(equalToConstant: 65).isActive = true
         currencyImage.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
         currencyImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         
         abbreviationLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(abbreviationLabel)
-        abbreviationLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        abbreviationLabel.bottomAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         abbreviationLabel.leftAnchor.constraint(equalTo: currencyImage.rightAnchor).isActive = true
         abbreviationLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
         abbreviationLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
+        currencyNameLabel.textColor = .gray
+        currencyNameLabel.adjustsFontSizeToFitWidth = true
+        currencyNameLabel.minimumScaleFactor = 0.5
+        currencyNameLabel.font = UIFont.systemFont(ofSize: 12)
         currencyNameLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(currencyNameLabel)
-        currencyNameLabel.topAnchor.constraint(equalTo: abbreviationLabel.bottomAnchor).isActive = true
+        currencyNameLabel.topAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        currencyNameLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
         currencyNameLabel.leftAnchor.constraint(equalTo: currencyImage.rightAnchor).isActive = true
-        currencyNameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         currencyNameLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
         
+        currencyTextField.delegate = self
+        currencyTextField.keyboardType = .numberPad
         currencyTextField.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(currencyTextField)
-        currencyTextField.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        currencyTextField.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        currencyTextField.leftAnchor.constraint(greaterThanOrEqualTo: currencyNameLabel.rightAnchor).isActive = true
+        currencyTextField.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         currencyTextField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10).isActive = true
+    }
+    
+}
+
+// MARK: - UITextFieldDelegate
+
+extension CurrenciesTableViewCell: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let updatedString = (textField.text as NSString?)?.replacingCharacters(in: range, with: string)
+        
+        guard let updatedText = updatedString, let number = Double(updatedText) else {
+            return false
+        }
+        
+        delegate?.changeMultiply(number)
+        
+        return true
     }
     
 }
@@ -67,11 +98,21 @@ final class CurrenciesTableViewCell: UITableViewCell {
 
 extension CurrenciesTableViewCell: Setupable {
     
-    func setup(_ setupObject: CurrenicesCellViewModel) {
+    func setup(_ setupObject: CurrenciesCellViewModel) {
         abbreviationLabel.text = setupObject.abbreviation
         currencyNameLabel.text = setupObject.currencyName
         currencyImage.image = setupObject.image
-        currencyTextField.text = setupObject.numberOfCurrency
+        currencyTextField.text = String(setupObject.numberOfCurrency)
+    }
+    
+}
+
+// MARK: - CurrencyCellObserver
+
+extension CurrenciesTableViewCell: CurrencyCellObserver {
+    
+    func updateNumber(_ number: Double) {
+        currencyTextField.text = String(number)
     }
     
 }

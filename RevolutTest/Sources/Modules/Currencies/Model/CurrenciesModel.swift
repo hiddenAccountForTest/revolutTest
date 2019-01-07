@@ -10,7 +10,7 @@ import Foundation
 
 struct CurrenciesModel: Decodable {
     
-    let rates: [String: Float]
+    let rates: [String: Double]
     
     enum CodingKeys: String, CodingKey {
         case rates
@@ -18,6 +18,6 @@ struct CurrenciesModel: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        rates = try container.decode([String: Float].self, forKey: .rates)
+        rates = try container.decode([String: Double].self, forKey: .rates)
     }
 }
