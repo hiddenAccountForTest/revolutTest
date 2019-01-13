@@ -16,10 +16,13 @@ final class CurrenciesTableViewCell: UITableViewCell {
 
     // MARK: - Private properties
     
-    let abbreviationLabel = UILabel()
+    private let abbreviationLabel = UILabel()
     private let currencyNameLabel = UILabel()
     private let currencyImage = UIImageView()
     private let currencyTextField = UnderscoreTextField()
+    
+    private var isFirstCell: Bool?
+    private var setupObject: CurrenciesCellViewModel?
     
     // MARK: - Life cycle
     
@@ -30,6 +33,15 @@ final class CurrenciesTableViewCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        abbreviationLabel.text = nil
+        currencyNameLabel.text = nil
+        currencyImage.image = nil
+        setupObject?.delegate = nil
+        isFirstCell = nil
     }
     
     // MARK: - Private methods
@@ -73,21 +85,45 @@ final class CurrenciesTableViewCell: UITableViewCell {
         currencyTextField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10).isActive = true
     }
     
+    @objc func onDidReceiveData(_ notification: Notification) {
+        
+        if let data = notification.userInfo as? [String: Float] {
+            let number = data["number"]
+            
+            currencyTextField.text = "\(number! * Float(currencyTextField.text!)!)"
+        }
+    }
 }
 
 // MARK: - UITextFieldDelegate
 
 extension CurrenciesTableViewCell: UITextFieldDelegate {
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        guard let isFirstCell = isFirstCell, let cellText = textField.text else {
+            return
+        }
+        
+        if !isFirstCell {
+            if let number = Float(cellText), let currencyAbbreviation = setupObject?.abbreviation {
+                delegate?.replaceMainCurrency(currencyAbbreviation, withNumber: number)
+            }
+        }
+        
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        let updatedString = (textField.text as NSString?)?.replacingCharacters(in: range, with: string)
-        
-        guard let updatedText = updatedString, let number = Double(updatedText) else {
+        guard let isFirstCell = isFirstCell, let updatedString = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) else {
             return false
         }
         
-        delegate?.changeMultiply(number)
+        if isFirstCell {
+            if let number = Float(updatedString) {
+                delegate?.changeMultiply(number)
+            }
+        }
         
         return true
     }
@@ -103,6 +139,9 @@ extension CurrenciesTableViewCell: Setupable {
         currencyNameLabel.text = setupObject.currencyName
         currencyImage.image = setupObject.image
         currencyTextField.text = String(setupObject.numberOfCurrency)
+        isFirstCell = setupObject.isFirstCell
+        self.setupObject = setupObject
+        setupObject.delegate = self 
     }
     
 }
@@ -111,8 +150,16 @@ extension CurrenciesTableViewCell: Setupable {
 
 extension CurrenciesTableViewCell: CurrencyCellObserver {
     
-    func updateNumber(_ number: Double) {
-        currencyTextField.text = String(number)
+    func updateNumber(_ number: String) {
+        DispatchQueue.main.async {
+            guard let firstCell = self.isFirstCell else {
+                return
+            }
+            
+            if !firstCell {
+                self.currencyTextField.text = number
+            }
+        }
     }
     
 }

@@ -9,11 +9,33 @@
 import Foundation
 import UIKit
 
-struct CurrenciesCellViewModel {
+final class CurrenciesCellViewModel {
+    
+    // MARK: - Properties
     
     let image: UIImage
     let abbreviation: String
     let currencyName: String
-    var numberOfCurrency: Double
+    var multiplier: Float
+    var numberOfCurrency: String
+    var isFirstCell: Bool
+    var delegate: CurrencyCellObserver? = nil
     
+    // MARK: - Initilize
+    
+    init(image: UIImage,
+         abbreviation: String,
+         currencyName: String,
+         multiplier: Float,
+         numberOfCurrency: String,
+         isFirstCell: Bool,
+         delegate: CurrencyCellObserver? = nil) {
+        self.image = image
+        self.abbreviation = abbreviation
+        self.currencyName = currencyName
+        self.multiplier = multiplier
+        self.numberOfCurrency = numberOfCurrency
+        self.isFirstCell = isFirstCell
+        self.delegate = delegate
+    }
 }

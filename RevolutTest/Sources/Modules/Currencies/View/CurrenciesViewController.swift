@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CurrenciesViewModelDelegate: AnyObject {
+protocol CurrenciesViewModelDelegate: class {
     func updateTableView()
 }
 
@@ -68,6 +68,7 @@ extension CurrenciesViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         (cell as? CurrenciesTableViewCell)?.setup(viewModel.cellViewModels[indexPath.row])
         (cell as? CurrenciesTableViewCell)?.delegate = viewModel
+        
         return cell
     }
     
@@ -76,6 +77,10 @@ extension CurrenciesViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension CurrenciesViewController: UITableViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        view.endEditing(true)
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
@@ -93,16 +98,6 @@ extension CurrenciesViewController: CurrenciesViewModelDelegate {
     
     func updateTableView() {
         tableView.reloadData()
-        
-        for index in 0...tableView.numberOfRows(inSection: 0) {
-            let cell = tableView.cellForRow(at: IndexPath(item: index, section: 0))
-            guard let observer = cell as? CurrenciesTableViewCell else {
-                return
-            }
-            
-            viewModel.observerArray.append(observer)
-        }
-        
     }
     
 }

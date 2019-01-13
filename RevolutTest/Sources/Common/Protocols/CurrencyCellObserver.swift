@@ -9,5 +9,5 @@
 import Foundation
 
 protocol CurrencyCellObserver {
-    func updateNumber(_ number: Double)
+    func updateNumber(_ number: String)
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol CurrenciesStateChangeDelegate: AnyObject {
-    func changeMultiply(_ number: Double)
+protocol CurrenciesStateChangeDelegate: class {
+    func changeMultiply(_ number: Float)
+    func replaceMainCurrency(_ currency: String, withNumber number: Float)
 }
