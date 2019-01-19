@@ -61,12 +61,12 @@ final class CurrenciesViewController: UIViewController {
 extension CurrenciesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.cellViewModels.count
+        return viewModel.getCellViewModels().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        (cell as? CurrenciesTableViewCell)?.setup(viewModel.cellViewModels[indexPath.row])
+        (cell as? CurrenciesTableViewCell)?.setup(viewModel.getCellViewModels()[indexPath.row])
         (cell as? CurrenciesTableViewCell)?.delegate = viewModel
         
         return cell

@@ -38,4 +38,19 @@ final class CurrenciesCellViewModel {
         self.isFirstCell = isFirstCell
         self.delegate = delegate
     }
+    
+}
+
+// MARK: - Comparable
+
+extension CurrenciesCellViewModel: Comparable {
+    
+    static func < (lhs: CurrenciesCellViewModel, rhs: CurrenciesCellViewModel) -> Bool {
+        return lhs.abbreviation < rhs.abbreviation
+    }
+    
+    static func == (lhs: CurrenciesCellViewModel, rhs: CurrenciesCellViewModel) -> Bool {
+        return lhs.abbreviation == rhs.abbreviation
+    }
+    
 }

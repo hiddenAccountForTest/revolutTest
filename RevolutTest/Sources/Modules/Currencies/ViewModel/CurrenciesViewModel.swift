@@ -14,8 +14,6 @@ final class CurrenciesViewModel {
     
     weak var delegate: CurrenciesViewModelDelegate?
     
-    private(set) var cellViewModels: [CurrenciesCellViewModel] = []
-    
     // MARK: - Private properties
     
     // todo rename
@@ -24,6 +22,7 @@ final class CurrenciesViewModel {
     private let downloadService: DownloadCurrenciesService
     private let requestConstructor: RequestConstructor
     private let countriesDataSource: CountriesDataSourceable
+    private let viewModelDataSource: DataSourceInterface
     
     private var downloadOperation: GetNewContries?
     private let operationQueue: OperationQueue
@@ -33,18 +32,30 @@ final class CurrenciesViewModel {
     
     // MARK: - Initilize
     
-    init(downloadService: DownloadCurrenciesService, requestConstructor: RequestConstructor, countriesDataSource: CountriesDataSourceable, operationQueue: OperationQueue, searchCurrency: String) {
+    init(downloadService: DownloadCurrenciesService,
+         requestConstructor: RequestConstructor,
+         viewModelDataSource: DataSourceInterface,
+         countriesDataSource: CountriesDataSourceable,
+         operationQueue: OperationQueue,
+         searchCurrency: String) {
+        
         self.searchCurrency = searchCurrency
         self.operationQueue = operationQueue
         self.downloadService = downloadService
+        self.viewModelDataSource = viewModelDataSource
         self.requestConstructor = requestConstructor
         self.countriesDataSource = countriesDataSource
         self.downloadOperation = GetNewContries(downloadService: downloadService, urlRequestConstructor: requestConstructor, searchСurrency: searchCurrency)
         operationQueue.maxConcurrentOperationCount = 1
         downloadOperation?.output = self
+        
     }
     
-    // MARK: - Public methods
+    // MARK: - Methods
+    
+    func getCellViewModels() -> [CurrenciesCellViewModel] {
+        return viewModelDataSource.getViewModel()
+    }
     
     func startDownloadCurrenciesWithEuro() {
         guard let downloadOperation = downloadOperation else {
@@ -65,46 +76,29 @@ final class CurrenciesViewModel {
     }
     
     private func notify(_ number: Float) {
-        cellViewModels.forEach { $0.delegate?.updateNumber($0.numberOfCurrency) }
+        viewModelDataSource.getViewModel().forEach { $0.delegate?.updateNumber($0.numberOfCurrency) }
     }
 
     private func updateCurrencies() {
         if !isExecutable {
-        isExecutable = true
-        operationQueue.cancelAllOperations()
-        downloadOperation = nil
-        downloadOperation = GetNewContries(downloadService: downloadService, urlRequestConstructor: requestConstructor, searchСurrency: searchCurrency)
-        downloadOperation?.output = self
+            isExecutable = true
+            operationQueue.cancelAllOperations()
+            downloadOperation = nil
+            downloadOperation = GetNewContries(downloadService: downloadService, urlRequestConstructor: requestConstructor, searchСurrency: searchCurrency)
+            downloadOperation?.output = self
             
-        guard let downloadOperation = downloadOperation else {
-            return
-        }
+            guard let downloadOperation = downloadOperation else {
+                return
+            }
             
-        operationQueue.addOperation(downloadOperation)
+            operationQueue.addOperation(downloadOperation)
         }
-        
     }
     
-    private func didUpdateCurrencies(currencies: CurrenciesModel?, countryAbbreviation: String) {
+    private func didUpdateCurrencies(currencies: CurrenciesModel, countryAbbreviation: String) {
         
-        var coefficeintArray: [(String, Float)] = []
-        
-        guard let resultDictionary = currencies?.rates else {
-            return
-        }
-        
-        for (key, value) in resultDictionary {
-            coefficeintArray.append((key, value))
-        }
-        
-        coefficeintArray.sort {  $0.0 < $1.0 }
-        
-        guard self.cellViewModels.count > 0 else {
-            return
-        }
-        
-        for index in 1..<self.cellViewModels.count {
-            self.cellViewModels[index].multiplier = coefficeintArray[index-1].1
+        for (key, value) in currencies.rates {
+            viewModelDataSource.getElement(withKey: key)?.multiplier = value
         }
         
         self.changeMultiply(self.number)
@@ -116,13 +110,21 @@ final class CurrenciesViewModel {
         
     }
     
-    private func didDownloadNewCurrencies(currencies: CurrenciesModel?, countryAbbreviation: String) {
+    private func didDownloadNewCurrencies(currencies: CurrenciesModel, countryAbbreviation: String) {
         
-        guard let resultDictionary = currencies?.rates else {
-            return
-        }
+        let firstCountry = self.countriesDataSource.fetchCountry(withAbbreviation: countryAbbreviation)
+    
+        let firstElement = CurrenciesCellViewModel(image: firstCountry.image,
+                                                  abbreviation: countryAbbreviation,
+                                                  currencyName: firstCountry.title,
+                                                  multiplier: 1.0,
+                                                  numberOfCurrency: String(self.number),
+                                                  isFirstCell: true,
+                                                  delegate: nil)
         
-        for (key, value) in resultDictionary {
+        viewModelDataSource.addElement(firstElement)
+        
+        for (key, value) in currencies.rates {
             
             let country = self.countriesDataSource.fetchCountry(withAbbreviation: key)
             
@@ -131,25 +133,13 @@ final class CurrenciesViewModel {
                                                     currencyName: country.title,
                                                     multiplier: value,
                                                     numberOfCurrency: "\(self.number * value)",
-                isFirstCell: false,
-                delegate: nil)
+                                                    isFirstCell: false,
+                                                    delegate: nil)
             
-            self.cellViewModels.append(cellModel)
+            viewModelDataSource.addElement(cellModel)
         }
         
-        self.cellViewModels.sort {  $0.abbreviation < $1.abbreviation }
-        
-        let country = self.countriesDataSource.fetchCountry(withAbbreviation: countryAbbreviation)
-        
-        let euroElement = CurrenciesCellViewModel(image: country.image,
-                                                  abbreviation: countryAbbreviation,
-                                                  currencyName: country.title,
-                                                  multiplier: 1.0,
-                                                  numberOfCurrency: String(self.number),
-                                                  isFirstCell: true,
-                                                  delegate: nil)
-        
-        self.cellViewModels.insert(euroElement, at: 0)
+        viewModelDataSource.sortArray()
         
         DispatchQueue.main.async {
             self.delegate?.updateTableView()
@@ -172,7 +162,7 @@ extension CurrenciesViewModel: CurrenciesStateChangeDelegate {
         self.number = number
         
         operationQueue.cancelAllOperations()
-        cellViewModels = []
+        viewModelDataSource.clear()
         
         downloadOperation = nil
         downloadOperation = GetNewContries(downloadService: downloadService, urlRequestConstructor: requestConstructor, searchСurrency: currency)
@@ -186,11 +176,14 @@ extension CurrenciesViewModel: CurrenciesStateChangeDelegate {
     func changeMultiply(_ number: Float) {
         
         self.number = number
-        cellViewModels[0].numberOfCurrency = "\(number)"
-        cellViewModels[0].multiplier = number
         
-        for index in 1..<cellViewModels.count {
-            cellViewModels[index].numberOfCurrency = "\(number * Float(cellViewModels[index].multiplier))"
+        let viewModel = viewModelDataSource.getViewModel()
+        
+        viewModel.first?.numberOfCurrency = "\(number)"
+        viewModel.first?.multiplier = number
+        
+        for index in 1..<viewModelDataSource.getViewModel().count {
+            viewModel[index].numberOfCurrency = "\(number * Float(viewModel[index].multiplier))"
         }
         
         notify(number)
@@ -205,12 +198,16 @@ extension CurrenciesViewModel: GetNewContriesOuput {
     func didGetCurrencies(networkResult: CurrenciesModel?, forCountry countryAbbreviation: String) {
 
         downloadOperation = nil
+
+        guard let result = networkResult else {
+            return
+        }
         
-        if cellViewModels.count == 0 {
+        if viewModelDataSource.getViewModel().count == 0 {
             isExecutable = false
-            didDownloadNewCurrencies(currencies: networkResult, countryAbbreviation: countryAbbreviation)
+            didDownloadNewCurrencies(currencies: result, countryAbbreviation: countryAbbreviation)
         } else {
-            didUpdateCurrencies(currencies: networkResult, countryAbbreviation: countryAbbreviation)
+            didUpdateCurrencies(currencies: result, countryAbbreviation: countryAbbreviation)
         }
         
         
