@@ -31,6 +31,7 @@
 		BBC2D55C21E3B027001ECBDE /* UnderscoreTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D55B21E3B027001ECBDE /* UnderscoreTextField.swift */; };
 		BBC2D55E21E3F24F001ECBDE /* CurrenciesStateChangeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D55D21E3F24E001ECBDE /* CurrenciesStateChangeDelegate.swift */; };
 		BBC2D56021E4017A001ECBDE /* CurrencyCellObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D55F21E4017A001ECBDE /* CurrencyCellObserver.swift */; };
+		BBDFAFBC21F11AD700CAA814 /* NetworkOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAFBB21F11AD700CAA814 /* NetworkOperations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		BBC2D55B21E3B027001ECBDE /* UnderscoreTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderscoreTextField.swift; sourceTree = "<group>"; };
 		BBC2D55D21E3F24E001ECBDE /* CurrenciesStateChangeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesStateChangeDelegate.swift; sourceTree = "<group>"; };
 		BBC2D55F21E4017A001ECBDE /* CurrencyCellObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCellObserver.swift; sourceTree = "<group>"; };
+		BBDFAFBB21F11AD700CAA814 /* NetworkOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkOperations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				BBC2D55821E376BC001ECBDE /* CountriesDataSource.swift */,
+				BBDFAFBB21F11AD700CAA814 /* NetworkOperations.swift */,
 			);
 			path = Composition;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				BB71CF3E21E2834200188EF6 /* Setupable.swift in Sources */,
 				BBC2D55921E376BC001ECBDE /* CountriesDataSource.swift in Sources */,
 				BB71CF3221E2381200188EF6 /* RequestConstructorImplementation.swift in Sources */,
+				BBDFAFBC21F11AD700CAA814 /* NetworkOperations.swift in Sources */,
 				BB71CF2921E22D2800188EF6 /* DownloadCurrencies.swift in Sources */,
 				BB71CF2B21E22D5A00188EF6 /* DownloadCurrenciesImplementation.swift in Sources */,
 				BB365A5021E1365B00152F04 /* NetworkClient.swift in Sources */,

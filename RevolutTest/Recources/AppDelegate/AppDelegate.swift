@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let requestConstructor = RequestConstructorImplementation()
         let countriesDataSource = CountriesDataSource()
         
-        let viewModel = CurrenciesViewModel(downloadService: downloadService, requestConstructor: requestConstructor, countriesDataSource: countriesDataSource)
+        let viewModel = CurrenciesViewModel(downloadService: downloadService, requestConstructor: requestConstructor, countriesDataSource: countriesDataSource, operationQueue: OperationQueue(), searchCurrency: "EUR")
         let currenciesViewController = CurrenciesViewController(viewModel: viewModel)
         
         let navigationController = UINavigationController(rootViewController: currenciesViewController)
