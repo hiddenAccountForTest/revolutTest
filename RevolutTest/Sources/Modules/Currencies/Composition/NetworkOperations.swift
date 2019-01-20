@@ -44,7 +44,7 @@ final class GetNewContries: Operation {
             return
         }
         
-        downloadService.downloadNews(request: urlRequest) { [weak self] result in
+        downloadService.downloadCurrencies(request: urlRequest) { [weak self] result in
             
             guard let `self` = self else {
                 return

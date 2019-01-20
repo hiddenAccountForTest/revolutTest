@@ -26,7 +26,7 @@ final class DownloadCurrenciesImplementation {
 
 extension DownloadCurrenciesImplementation: DownloadCurrenciesService {
     
-    func downloadNews(request: URLRequest, completionHandler: @escaping (Result<CurrenciesModel>) -> Void) {
+    func downloadCurrencies(request: URLRequest, completionHandler: @escaping (Result<CurrenciesModel>) -> Void) {
         networkClient.fetchRequest(request: request, completion: completionHandler)
     }
     

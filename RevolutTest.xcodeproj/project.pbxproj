@@ -34,6 +34,8 @@
 		BBDFAFBC21F11AD700CAA814 /* NetworkOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAFBB21F11AD700CAA814 /* NetworkOperations.swift */; };
 		BBDFAFBE21F37AA100CAA814 /* AbbreviationArraySort.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAFBD21F37AA100CAA814 /* AbbreviationArraySort.swift */; };
 		BBDFAFC021F380F700CAA814 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAFBF21F380F700CAA814 /* DataSource.swift */; };
+		BBDFAFC321F3C33A00CAA814 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAFC221F3C33A00CAA814 /* Collection.swift */; };
+		BBDFAFC721F3CE8B00CAA814 /* PlaceholderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAFC621F3CE8B00CAA814 /* PlaceholderTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +84,8 @@
 		BBDFAFBB21F11AD700CAA814 /* NetworkOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkOperations.swift; sourceTree = "<group>"; };
 		BBDFAFBD21F37AA100CAA814 /* AbbreviationArraySort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbbreviationArraySort.swift; sourceTree = "<group>"; };
 		BBDFAFBF21F380F700CAA814 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		BBDFAFC221F3C33A00CAA814 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		BBDFAFC621F3CE8B00CAA814 /* PlaceholderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +237,7 @@
 			children = (
 				BB365A2521E0FDDD00152F04 /* CurrenciesViewController.swift */,
 				BB71CF3921E26BC300188EF6 /* CurrenciesTableViewCell.swift */,
+				BBDFAFC621F3CE8B00CAA814 /* PlaceholderTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 		BB71CF3B21E2826E00188EF6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BBDFAFC121F3C31F00CAA814 /* Extensions */,
 				BBC2D55A21E3AFF4001ECBDE /* View */,
 				BB71CF3C21E2828300188EF6 /* Protocols */,
 			);
@@ -319,6 +325,14 @@
 				BBC2D55B21E3B027001ECBDE /* UnderscoreTextField.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BBDFAFC121F3C31F00CAA814 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BBDFAFC221F3C33A00CAA814 /* Collection.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -485,10 +499,12 @@
 				BBC2D55E21E3F24F001ECBDE /* CurrenciesStateChangeDelegate.swift in Sources */,
 				BB71CF3E21E2834200188EF6 /* Setupable.swift in Sources */,
 				BBDFAFBE21F37AA100CAA814 /* AbbreviationArraySort.swift in Sources */,
+				BBDFAFC721F3CE8B00CAA814 /* PlaceholderTableViewCell.swift in Sources */,
 				BBC2D55921E376BC001ECBDE /* CountriesDataSource.swift in Sources */,
 				BB71CF3221E2381200188EF6 /* RequestConstructorImplementation.swift in Sources */,
 				BBDFAFBC21F11AD700CAA814 /* NetworkOperations.swift in Sources */,
 				BB71CF2921E22D2800188EF6 /* DownloadCurrencies.swift in Sources */,
+				BBDFAFC321F3C33A00CAA814 /* Collection.swift in Sources */,
 				BB71CF2B21E22D5A00188EF6 /* DownloadCurrenciesImplementation.swift in Sources */,
 				BBDFAFC021F380F700CAA814 /* DataSource.swift in Sources */,
 				BB365A5021E1365B00152F04 /* NetworkClient.swift in Sources */,

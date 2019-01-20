@@ -164,6 +164,8 @@ extension CurrenciesViewModel: CurrenciesStateChangeDelegate {
         operationQueue.cancelAllOperations()
         viewModelDataSource.clear()
         
+        delegate?.startActivityIndicator()
+        
         downloadOperation = nil
         downloadOperation = GetNewContries(downloadService: downloadService, urlRequestConstructor: requestConstructor, searchСurrency: currency)
         downloadOperation?.output = self
@@ -202,6 +204,8 @@ extension CurrenciesViewModel: GetNewContriesOuput {
         guard let result = networkResult else {
             return
         }
+        
+        delegate?.stopActivityIndicator()
         
         if viewModelDataSource.getViewModel().count == 0 {
             isExecutable = false

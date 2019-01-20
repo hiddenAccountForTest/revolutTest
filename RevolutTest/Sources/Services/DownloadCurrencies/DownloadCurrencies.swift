@@ -9,5 +9,5 @@
 import Foundation
 
 protocol DownloadCurrenciesService {
-    func downloadNews(request: URLRequest, completionHandler: @escaping (Result<CurrenciesModel>) -> Void)
+    func downloadCurrencies(request: URLRequest, completionHandler: @escaping (Result<CurrenciesModel>) -> Void)
 }

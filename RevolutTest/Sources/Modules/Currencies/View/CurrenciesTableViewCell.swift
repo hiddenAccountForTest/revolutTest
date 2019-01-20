@@ -37,6 +37,7 @@ final class CurrenciesTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        currencyTextField.text = nil
         abbreviationLabel.text = nil
         currencyNameLabel.text = nil
         currencyImage.image = nil
