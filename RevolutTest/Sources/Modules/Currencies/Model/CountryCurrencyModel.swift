@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 struct CountryCurrencyModel {
-    
+
     let image: UIImage
     let title: String
-    
+
 }

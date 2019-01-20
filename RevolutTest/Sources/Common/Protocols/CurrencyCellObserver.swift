@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol CurrencyCellObserver {
+protocol CurrencyCellObserver: class {
     func updateNumber(_ number: String)
 }

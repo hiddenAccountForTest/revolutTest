@@ -10,19 +10,19 @@ import Foundation
 import UIKit
 
 final class CurrenciesCellViewModel {
-    
+
     // MARK: - Properties
-    
+
     let image: UIImage
     let abbreviation: String
     let currencyName: String
     var multiplier: Float
     var numberOfCurrency: String
     var isFirstCell: Bool
-    var delegate: CurrencyCellObserver? = nil
-    
+    weak var delegate: CurrencyCellObserver?
+
     // MARK: - Initilize
-    
+
     init(image: UIImage,
          abbreviation: String,
          currencyName: String,
@@ -38,19 +38,19 @@ final class CurrenciesCellViewModel {
         self.isFirstCell = isFirstCell
         self.delegate = delegate
     }
-    
+
 }
 
 // MARK: - Comparable
 
 extension CurrenciesCellViewModel: Comparable {
-    
+
     static func < (lhs: CurrenciesCellViewModel, rhs: CurrenciesCellViewModel) -> Bool {
         return lhs.abbreviation < rhs.abbreviation
     }
-    
+
     static func == (lhs: CurrenciesCellViewModel, rhs: CurrenciesCellViewModel) -> Bool {
         return lhs.abbreviation == rhs.abbreviation
     }
-    
+
 }

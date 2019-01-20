@@ -17,36 +17,36 @@ protocol DataSourceInterface {
 }
 
 final class DataSource {
-    
-    private var viewModel: [CurrenciesCellViewModel] = []
-    private var viewModelDictionary: [String : CurrenciesCellViewModel] = [:]
-    
+
+    private(set) var viewModel: [CurrenciesCellViewModel] = []
+    private(set) var viewModelDictionary: [String: CurrenciesCellViewModel] = [:]
+
 }
 
 // MARK: - DataSourceInterface
 
 extension DataSource: DataSourceInterface {
-    
+
     func addElement(_ element: CurrenciesCellViewModel) {
         viewModel.append(element)
         viewModelDictionary[element.abbreviation] = element
     }
-    
+
     func getElement(withKey key: String) -> CurrenciesCellViewModel? {
         return viewModelDictionary[key]
     }
-    
+
     func getViewModel() -> [CurrenciesCellViewModel] {
         return viewModel
     }
-    
+
     func clear() {
         viewModel = []
         viewModelDictionary = [:]
     }
-    
+
     func sortArray() {
         viewModel.insertionSortFromIndexFirst()
     }
-    
+
 }

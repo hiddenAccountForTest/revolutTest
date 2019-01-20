@@ -9,5 +9,5 @@
 import Foundation
 
 protocol RequestConstructor {
-    func constructRequest(domainName: String, path: String, parameters: [String : String]? ) -> URLRequest?
+    func constructRequest(domainName: String, path: String, parameters: [String: String]? ) -> URLRequest?
 }

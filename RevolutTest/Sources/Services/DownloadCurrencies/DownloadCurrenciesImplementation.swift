@@ -9,25 +9,25 @@
 import Foundation
 
 final class DownloadCurrenciesImplementation {
-    
+
     // MARK: - Properties
-    
+
     private let networkClient: NetworkClient
-    
+
     // MARK: - Initilize
-    
+
     init(networkClient: NetworkClient) {
         self.networkClient = networkClient
     }
-    
+
 }
 
 // MARK: - DownloadCurrencies
 
 extension DownloadCurrenciesImplementation: DownloadCurrenciesService {
-    
+
     func downloadCurrencies(request: URLRequest, completionHandler: @escaping (Result<CurrenciesModel>) -> Void) {
         networkClient.fetchRequest(request: request, completion: completionHandler)
     }
-    
+
 }

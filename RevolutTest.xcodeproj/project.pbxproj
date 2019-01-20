@@ -13,7 +13,6 @@
 		BB365A2621E0FDDD00152F04 /* CurrenciesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB365A2521E0FDDD00152F04 /* CurrenciesViewController.swift */; };
 		BB365A2B21E0FDE000152F04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB365A2A21E0FDE000152F04 /* Assets.xcassets */; };
 		BB365A2E21E0FDE000152F04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB365A2C21E0FDE000152F04 /* LaunchScreen.storyboard */; };
-		BB365A3921E0FDE000152F04 /* RevolutTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB365A3821E0FDE000152F04 /* RevolutTestTests.swift */; };
 		BB365A5021E1365B00152F04 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB365A4F21E1365B00152F04 /* NetworkClient.swift */; };
 		BB365A5221E1385D00152F04 /* NetworkClientImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB365A5121E1385D00152F04 /* NetworkClientImplementation.swift */; };
 		BB365A5421E1537200152F04 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB365A5321E1537200152F04 /* Result.swift */; };
@@ -31,11 +30,22 @@
 		BBC2D55C21E3B027001ECBDE /* UnderscoreTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D55B21E3B027001ECBDE /* UnderscoreTextField.swift */; };
 		BBC2D55E21E3F24F001ECBDE /* CurrenciesStateChangeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D55D21E3F24E001ECBDE /* CurrenciesStateChangeDelegate.swift */; };
 		BBC2D56021E4017A001ECBDE /* CurrencyCellObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC2D55F21E4017A001ECBDE /* CurrencyCellObserver.swift */; };
+		BBCC891521F5076700214674 /* AbbreviationArraySortTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCC891421F5076700214674 /* AbbreviationArraySortTest.swift */; };
+		BBCC891721F50BCE00214674 /* DataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCC891621F50BCE00214674 /* DataSourceTests.swift */; };
+		BBCC891921F5139B00214674 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCC891821F5139B00214674 /* ViewModelTests.swift */; };
+		BBCC891B21F5147800214674 /* DataSourceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCC891A21F5147800214674 /* DataSourceMock.swift */; };
+		BBCC891D21F5169000214674 /* OperationQueueMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCC891C21F5169000214674 /* OperationQueueMock.swift */; };
+		BBCC891F21F5249F00214674 /* CurrenciesViewModelDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCC891E21F5249F00214674 /* CurrenciesViewModelDelegateMock.swift */; };
 		BBDFAFBC21F11AD700CAA814 /* NetworkOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAFBB21F11AD700CAA814 /* NetworkOperations.swift */; };
 		BBDFAFBE21F37AA100CAA814 /* AbbreviationArraySort.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAFBD21F37AA100CAA814 /* AbbreviationArraySort.swift */; };
 		BBDFAFC021F380F700CAA814 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAFBF21F380F700CAA814 /* DataSource.swift */; };
 		BBDFAFC321F3C33A00CAA814 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAFC221F3C33A00CAA814 /* Collection.swift */; };
 		BBDFAFC721F3CE8B00CAA814 /* PlaceholderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAFC621F3CE8B00CAA814 /* PlaceholderTableViewCell.swift */; };
+		BBDFAFCA21F4E2C600CAA814 /* CountriesDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAFC921F4E2C600CAA814 /* CountriesDataSourceTests.swift */; };
+		BBDFAFCC21F4EAB200CAA814 /* GetNewContriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAFCB21F4EAB200CAA814 /* GetNewContriesTests.swift */; };
+		BBDFAFD021F4F2C400CAA814 /* DownloadCurrenciesServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAFCF21F4F2C400CAA814 /* DownloadCurrenciesServiceMock.swift */; };
+		BBDFAFD221F4F63500CAA814 /* URLRequestConstructorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAFD121F4F63500CAA814 /* URLRequestConstructorMock.swift */; };
+		BBDFAFD421F4F7E900CAA814 /* GetNewContriesOuputMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDFAFD321F4F7E900CAA814 /* GetNewContriesOuputMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +72,6 @@
 		BB365A2D21E0FDE000152F04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB365A2F21E0FDE000152F04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB365A3421E0FDE000152F04 /* RevolutTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RevolutTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB365A3821E0FDE000152F04 /* RevolutTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevolutTestTests.swift; sourceTree = "<group>"; };
 		BB365A3A21E0FDE000152F04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB365A4F21E1365B00152F04 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		BB365A5121E1385D00152F04 /* NetworkClientImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientImplementation.swift; sourceTree = "<group>"; };
@@ -81,11 +90,22 @@
 		BBC2D55B21E3B027001ECBDE /* UnderscoreTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderscoreTextField.swift; sourceTree = "<group>"; };
 		BBC2D55D21E3F24E001ECBDE /* CurrenciesStateChangeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesStateChangeDelegate.swift; sourceTree = "<group>"; };
 		BBC2D55F21E4017A001ECBDE /* CurrencyCellObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCellObserver.swift; sourceTree = "<group>"; };
+		BBCC891421F5076700214674 /* AbbreviationArraySortTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbbreviationArraySortTest.swift; sourceTree = "<group>"; };
+		BBCC891621F50BCE00214674 /* DataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceTests.swift; sourceTree = "<group>"; };
+		BBCC891821F5139B00214674 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
+		BBCC891A21F5147800214674 /* DataSourceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceMock.swift; sourceTree = "<group>"; };
+		BBCC891C21F5169000214674 /* OperationQueueMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationQueueMock.swift; sourceTree = "<group>"; };
+		BBCC891E21F5249F00214674 /* CurrenciesViewModelDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesViewModelDelegateMock.swift; sourceTree = "<group>"; };
 		BBDFAFBB21F11AD700CAA814 /* NetworkOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkOperations.swift; sourceTree = "<group>"; };
 		BBDFAFBD21F37AA100CAA814 /* AbbreviationArraySort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbbreviationArraySort.swift; sourceTree = "<group>"; };
 		BBDFAFBF21F380F700CAA814 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		BBDFAFC221F3C33A00CAA814 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		BBDFAFC621F3CE8B00CAA814 /* PlaceholderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTableViewCell.swift; sourceTree = "<group>"; };
+		BBDFAFC921F4E2C600CAA814 /* CountriesDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesDataSourceTests.swift; sourceTree = "<group>"; };
+		BBDFAFCB21F4EAB200CAA814 /* GetNewContriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewContriesTests.swift; sourceTree = "<group>"; };
+		BBDFAFCF21F4F2C400CAA814 /* DownloadCurrenciesServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadCurrenciesServiceMock.swift; sourceTree = "<group>"; };
+		BBDFAFD121F4F63500CAA814 /* URLRequestConstructorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestConstructorMock.swift; sourceTree = "<group>"; };
+		BBDFAFD321F4F7E900CAA814 /* GetNewContriesOuputMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNewContriesOuputMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +180,8 @@
 		BB365A3721E0FDE000152F04 /* RevolutTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				BB365A3821E0FDE000152F04 /* RevolutTestTests.swift */,
+				BBDFAFCE21F4EAD700CAA814 /* Mocks */,
+				BBDFAFCD21F4EAD200CAA814 /* Tests */,
 				BB365A3A21E0FDE000152F04 /* Info.plist */,
 			);
 			path = RevolutTestTests;
@@ -335,6 +356,31 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		BBDFAFCD21F4EAD200CAA814 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BBDFAFCB21F4EAB200CAA814 /* GetNewContriesTests.swift */,
+				BBDFAFC921F4E2C600CAA814 /* CountriesDataSourceTests.swift */,
+				BBCC891421F5076700214674 /* AbbreviationArraySortTest.swift */,
+				BBCC891621F50BCE00214674 /* DataSourceTests.swift */,
+				BBCC891821F5139B00214674 /* ViewModelTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		BBDFAFCE21F4EAD700CAA814 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				BBDFAFCF21F4F2C400CAA814 /* DownloadCurrenciesServiceMock.swift */,
+				BBDFAFD121F4F63500CAA814 /* URLRequestConstructorMock.swift */,
+				BBDFAFD321F4F7E900CAA814 /* GetNewContriesOuputMock.swift */,
+				BBCC891A21F5147800214674 /* DataSourceMock.swift */,
+				BBCC891C21F5169000214674 /* OperationQueueMock.swift */,
+				BBCC891E21F5249F00214674 /* CurrenciesViewModelDelegateMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -346,6 +392,7 @@
 				BB365A1C21E0FDDD00152F04 /* Sources */,
 				BB365A1D21E0FDDD00152F04 /* Frameworks */,
 				BB365A1E21E0FDDD00152F04 /* Resources */,
+				BBDFAFC821F4CD9B00CAA814 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -455,6 +502,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BBDFAFC821F4CD9B00CAA814 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		BDD22B472CFB18A2AA2802CF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -515,7 +579,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB365A3921E0FDE000152F04 /* RevolutTestTests.swift in Sources */,
+				BBDFAFCC21F4EAB200CAA814 /* GetNewContriesTests.swift in Sources */,
+				BBCC891F21F5249F00214674 /* CurrenciesViewModelDelegateMock.swift in Sources */,
+				BBCC891521F5076700214674 /* AbbreviationArraySortTest.swift in Sources */,
+				BBDFAFCA21F4E2C600CAA814 /* CountriesDataSourceTests.swift in Sources */,
+				BBDFAFD221F4F63500CAA814 /* URLRequestConstructorMock.swift in Sources */,
+				BBDFAFD421F4F7E900CAA814 /* GetNewContriesOuputMock.swift in Sources */,
+				BBDFAFD021F4F2C400CAA814 /* DownloadCurrenciesServiceMock.swift in Sources */,
+				BBCC891921F5139B00214674 /* ViewModelTests.swift in Sources */,
+				BBCC891721F50BCE00214674 /* DataSourceTests.swift in Sources */,
+				BBCC891B21F5147800214674 /* DataSourceMock.swift in Sources */,
+				BBCC891D21F5169000214674 /* OperationQueueMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

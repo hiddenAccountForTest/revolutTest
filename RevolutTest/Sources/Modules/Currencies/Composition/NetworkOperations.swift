@@ -14,65 +14,68 @@ protocol GetNewContriesOuput: class {
 }
 
 final class GetNewContries: Operation {
-    
+
     weak var output: GetNewContriesOuput?
-    
+
     // MARK: - Private properties
-    
+
     private let searchСurrency: String
     private let downloadService: DownloadCurrenciesService
     private let urlRequestConstructor: RequestConstructor
-    
+
     // MARK: - Initilize
-    
-    init(downloadService: DownloadCurrenciesService, urlRequestConstructor: RequestConstructor, searchСurrency: String) {
+
+    init(downloadService: DownloadCurrenciesService,
+         urlRequestConstructor: RequestConstructor,
+         searchСurrency: String) {
+        
         self.searchСurrency = searchСurrency
         self.downloadService = downloadService
         self.urlRequestConstructor = urlRequestConstructor
-    }
-    
-    override func main() {
         
+    }
+
+    override func main() {
+
         if isCancelled {
             return
         }
-        
+
         guard let urlRequest = createRequest(abbreviation: searchСurrency) else {
             return
         }
-        
+
         if isCancelled {
             return
         }
-        
+
         downloadService.downloadCurrencies(request: urlRequest) { [weak self] result in
-            
+
             guard let `self` = self else {
                 return
             }
-            
+
             if self.isCancelled {
                 return
             }
-            
+
             switch result {
             case .success(let dictionary):
                 self.output?.didGetCurrencies(networkResult: dictionary, forCountry: self.searchСurrency)
             case .error:
                 self.output?.downloadOperationWasFailed()
             }
-            
+
         }
     }
-    
+
     private func createRequest(abbreviation: String) -> URLRequest? {
-        
+
         let request = urlRequestConstructor.constructRequest(domainName: "https://revolut.duckdns.org",
                                                           path: "/latest",
-                                                          parameters: ["base" : abbreviation])
-        
+                                                          parameters: ["base": abbreviation])
+
         return request
     }
-    
-    
+
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 extension Array where Element: CurrenciesCellViewModel {
-    
+
     mutating func insertionSortFromIndexFirst() {
         for index in 2..<self.count {
             var changableIndex = index
@@ -19,5 +19,5 @@ extension Array where Element: CurrenciesCellViewModel {
             }
         }
     }
-    
+
 }

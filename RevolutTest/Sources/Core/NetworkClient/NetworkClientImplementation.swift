@@ -14,15 +14,15 @@ enum NetworkClientErrors: Error {
 }
 
 final class NetworkClientImplementation {
-    
+
     static let shared = NetworkClientImplementation(session: customURLSession)
-    
+
     // MARK: - Private propertes
-    
+
     private let session: URLSession
-    
+
     // MARK: - Init
-    
+
     init(session: URLSession) {
         self.session = session
     }
@@ -31,15 +31,15 @@ final class NetworkClientImplementation {
 // MARK: - NetworkClient
 
 extension NetworkClientImplementation: NetworkClient {
-    
-    func fetchRequest<T>(request: URLRequest, completion: @escaping (Result<T>) -> Void) where T : Decodable {
-        
-        session.dataTask(with: request) { (data, response, error) in
-            
+
+    func fetchRequest<T: Decodable>(request: URLRequest, completion: @escaping (Result<T>) -> Void) {
+
+        session.dataTask(with: request) { (data, _, error) in
+
             if error != nil {
                 completion(.error(NetworkClientErrors.connectionError))
             }
-            
+
             if let data = data {
                 do {
                     let resultData = try JSONDecoder().decode(T.self, from: data)
@@ -50,22 +50,22 @@ extension NetworkClientImplementation: NetworkClient {
             } else {
                 completion(.error(NetworkClientErrors.wrongData))
             }
-            
+
         }.resume()
-        
+
     }
-    
+
 }
 
 // MARK: - Extension
 
 private extension NetworkClientImplementation {
-    
+
     static let customURLSession: URLSession = {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = TimeInterval(15)
         configuration.timeoutIntervalForResource = TimeInterval(15)
-        return URLSession(configuration: configuration )
+        return URLSession(configuration: configuration)
     }()
-    
+
 }
