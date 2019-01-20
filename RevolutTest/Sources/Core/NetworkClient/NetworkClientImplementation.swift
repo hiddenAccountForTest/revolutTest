@@ -47,6 +47,8 @@ extension NetworkClientImplementation: NetworkClient {
                 } catch {
                     completion(.error(NetworkClientErrors.wrongData))
                 }
+            } else {
+                completion(.error(NetworkClientErrors.wrongData))
             }
             
         }.resume()

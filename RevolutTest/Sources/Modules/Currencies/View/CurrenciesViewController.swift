@@ -9,6 +9,7 @@
 import UIKit
 
 protocol CurrenciesViewModelDelegate: class {
+    func showNetworkConnectionAlert()
     func updateTableView()
     func startActivityIndicator()
     func stopActivityIndicator()
@@ -38,7 +39,7 @@ final class CurrenciesViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         viewModel.delegate = self
-        viewModel.startDownloadCurrenciesWithEuro()
+        viewModel.startDownloadCurrencies()
         activityIndicator.startAnimating()
     }
 
@@ -132,6 +133,16 @@ extension CurrenciesViewController: CurrenciesViewModelDelegate {
         }
     }
     
+    func showNetworkConnectionAlert() {
+        let alertController = UIAlertController(title: "Network connection problem", message: "Please try again", preferredStyle: .alert)
+        let tryAgainAction = UIAlertAction(title: "try again", style: .cancel) { _ in
+            self.viewModel.startDownloadCurrencies()
+        }
+        alertController.addAction(tryAgainAction)
+        
+        present(alertController, animated: true)
+    }
+
 }
 
 // MARK: - Constants

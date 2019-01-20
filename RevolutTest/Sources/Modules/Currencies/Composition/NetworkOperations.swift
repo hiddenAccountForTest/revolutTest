@@ -10,6 +10,7 @@ import Foundation
 
 protocol GetNewContriesOuput: class {
     func didGetCurrencies(networkResult: CurrenciesModel?, forCountry countryAbbreviation: String)
+    func downloadOperationWasFailed()
 }
 
 final class GetNewContries: Operation {
@@ -58,7 +59,7 @@ final class GetNewContries: Operation {
             case .success(let dictionary):
                 self.output?.didGetCurrencies(networkResult: dictionary, forCountry: self.searchСurrency)
             case .error:
-                break
+                self.output?.downloadOperationWasFailed()
             }
             
         }

@@ -45,7 +45,6 @@ final class CurrenciesViewModel {
         self.viewModelDataSource = viewModelDataSource
         self.requestConstructor = requestConstructor
         self.countriesDataSource = countriesDataSource
-        self.downloadOperation = GetNewContries(downloadService: downloadService, urlRequestConstructor: requestConstructor, searchСurrency: searchCurrency)
         operationQueue.maxConcurrentOperationCount = 1
         downloadOperation?.output = self
         
@@ -57,11 +56,14 @@ final class CurrenciesViewModel {
         return viewModelDataSource.getViewModel()
     }
     
-    func startDownloadCurrenciesWithEuro() {
-        guard let downloadOperation = downloadOperation else {
+    func startDownloadCurrencies() {
+        downloadOperation = GetNewContries(downloadService: downloadService, urlRequestConstructor: requestConstructor, searchСurrency: searchCurrency)
+        downloadOperation?.output = self
+        guard let operation = downloadOperation else {
             return
         }
-        operationQueue.addOperation(downloadOperation)
+        
+        operationQueue.addOperation(operation)
     }
     
     // MARK: - Private methods
@@ -196,7 +198,7 @@ extension CurrenciesViewModel: CurrenciesStateChangeDelegate {
 // MARK: - GetNewContriesOuput
 
 extension CurrenciesViewModel: GetNewContriesOuput {
-    
+
     func didGetCurrencies(networkResult: CurrenciesModel?, forCountry countryAbbreviation: String) {
 
         downloadOperation = nil
@@ -214,7 +216,10 @@ extension CurrenciesViewModel: GetNewContriesOuput {
             didUpdateCurrencies(currencies: result, countryAbbreviation: countryAbbreviation)
         }
         
-        
+    }
+    
+    func downloadOperationWasFailed() {
+        delegate?.showNetworkConnectionAlert()
     }
     
 }
