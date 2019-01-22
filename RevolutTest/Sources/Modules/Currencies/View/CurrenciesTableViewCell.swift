@@ -78,7 +78,7 @@ final class CurrenciesTableViewCell: UITableViewCell {
         currencyNameLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
 
         currencyTextField.delegate = self
-        currencyTextField.keyboardType = .numberPad
+        currencyTextField.keyboardType = .decimalPad
         currencyTextField.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(currencyTextField)
         currencyTextField.leftAnchor.constraint(greaterThanOrEqualTo: currencyNameLabel.rightAnchor).isActive = true
@@ -102,18 +102,19 @@ extension CurrenciesTableViewCell: UITextFieldDelegate {
     
     // swiftlint:disable line_length
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         guard let isFirstCell = isFirstCell, let cellText = textField.text else {
-            return
+            return false
         }
-
+        
         if !isFirstCell {
             if let number = Float(cellText), let currencyAbbreviation = setupObject?.abbreviation {
                 delegate?.replaceMainCurrency(currencyAbbreviation, withNumber: number)
             }
+            return false
+        } else {
+            return true
         }
-
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
